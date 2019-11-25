@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const prefix = '/';
-const token = 'NjQ3NzY4ODYzNDMzNDI0OTM2.XdvxaQ.LUYBBK0VusXJhkavPNV207SD0X8';
+//const token = 'NjQ3NzY4ODYzNDMzNDI0OTM2.XdvxaQ.LUYBBK0VusXJhkavPNV207SD0X8';
 const ytdl = require('ytdl-core');
 
 const client = new Discord.Client();
@@ -12,7 +12,7 @@ const opts = {
 };
 
 const queue = new Map();
-
+client.login(process.emv.token);
 client.once('ready', () => {
 	console.log('Ready!');
 });
@@ -140,4 +140,3 @@ function play(guild, song) {
 		});
 	dispatcher.setVolumeLogarithmic(serverQueue.volume / 5);
 }
-client.login(token);
