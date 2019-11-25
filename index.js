@@ -59,7 +59,7 @@ async function execute(message, serverQueue) {
     let query = await message.channel.awaitMessages(filter, { max: 1 });
     let songInfo = await search(query.first().content, opts).catch(err => console.log(err));
     //const songInfo = await ytdl.getInfo(args[1]);
-    console.log(songInfo);
+  //  console.log(songInfo);
 
         const youtubeResults = songInfo.results;
         const url2 = youtubeResults.map(result => {
@@ -122,10 +122,10 @@ function stop(message, serverQueue) {
 function play(guild, song) {
     const serverQueue = queue.get(guild.id);
     console.log(song);
-	let name = new client.RichEmbed()
-          .setColor("RED")
-           .setTitle('🎧 Playing Song 🎧' + song.title);
-	 message.channel.send(name);
+	//let name = new client.RichEmbed()
+          //.setColor("RED")
+          // .setTitle('🎧 Playing Song 🎧' + song.title);
+	// message.channel.send(name);
 
 	if (!song) {
 		serverQueue.voiceChannel.leave();
