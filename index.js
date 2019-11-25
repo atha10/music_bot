@@ -6,7 +6,7 @@ const Discord = require('discord.js');
 const bot = new Client();
 const ytdl = require("ytdl-core");
 
-const token = 'kmu0-T5z9HVuXnUKzICVkEfeBe1cnTkZ';
+const token = 'NjQ3NzY4ODYzNDMzNDI0OTM2.Xdkgow.z-dGImQdfm2wWYINxEEUclsKbXM';
 const PREFIX = '/';
 var version = '1.2';
 const search = require('youtube-search');
@@ -158,8 +158,8 @@ bot.on('message', message => {
             }
                
         let filter = m => m.author.id === message.author.id;
-        let query = await message.channel.awaitMessages(filter, { max: 1 });
-        let results = await search(query.first().content, opts).catch(err => console.log(err));
+        let query =  message.channel.awaitMessages(filter, { max: 1 });
+        let results =  search(query.first().content, opts).catch(err => console.log(err));
         if(results) {
             let youtubeResults = results.results;
             let i  =0;
