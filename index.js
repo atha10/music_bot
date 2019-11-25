@@ -130,6 +130,11 @@ function play(guild, song) {
 		return;
 	}
    //server.dispatcher = connection.playStream(ytdl(server.queue[0], {filter: "audioonly"}));
+	let name = new discord.RichEmbed()
+            .setColor("RED")
+            
+            .setTitle('🎧 Playing Song 🎧' + song.title);
+	message.channel.send(name);
 	const dispatcher = serverQueue.connection.playStream(ytdl(song.url, {filter: "audio"}))
 		.on('end', () => {
 			console.log('Music ended!');
