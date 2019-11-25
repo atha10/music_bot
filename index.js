@@ -6,7 +6,7 @@ const Discord = require('discord.js');
 const bot = new Client();
 const ytdl = require("ytdl-core");
 
-const token = 'NjQ3NzY4ODYzNDMzNDI0OTM2.Xdkgow.z-dGImQdfm2wWYINxEEUclsKbXM';
+const token = 'NjQ3NzY4ODYzNDMzNDI0OTM2.XdvvYQ.HpA3kk8SCeif-Kw_mqZK8mWS6cw';
 const PREFIX = '/';
 var version = '1.2';
 const search = require('youtube-search');
