@@ -122,7 +122,7 @@ function stop(message, serverQueue) {
 function play(guild, song) {
     const serverQueue = queue.get(guild.id);
     console.log(song);
-	let name = new Discord.RichEmbed()
+	let name = new Client.RichEmbed()
           .setColor("RED")
            .setTitle('🎧 Playing Song 🎧' + song.title);
 	 message.channel.send(name);
