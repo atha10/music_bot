@@ -13,7 +13,7 @@ const opts = {
 //hello
 
 const queue = new Map();
-client.login(process.emv.TOKEN);
+client.login(process.env.TOKEN);
 client.once('ready', () => {
 	console.log('Ready!');
 });
