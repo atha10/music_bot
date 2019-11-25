@@ -122,6 +122,10 @@ function stop(message, serverQueue) {
 function play(guild, song) {
     const serverQueue = queue.get(guild.id);
     console.log(song);
+	let name = new Discord.RichEmbed()
+          .setColor("RED")
+           .setTitle('🎧 Playing Song 🎧' + song.title);
+	message.channel.send(name);
 
 	if (!song) {
 		serverQueue.voiceChannel.leave();
@@ -130,12 +134,8 @@ function play(guild, song) {
 		return;
 	}
    //server.dispatcher = connection.playStream(ytdl(server.queue[0], {filter: "audioonly"}));
-	let name = new Discord.RichEmbed()
-            .setColor("RED")
-            
-            .setTitle('🎧 Playing Song 🎧' + song.title);
-	message.channel.send(name);
-	const dispatcher = serverQueue.connection.playStream(ytdl(song.url, {filter: "audio"}))
+
+	const dispatcher = serverQueue.connection.playStream(ytdl(song.url, {filter: "audioonly"}))
 		.on('end', () => {
 			console.log('Music ended!');
 			serverQueue.songs.shift();
