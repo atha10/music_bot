@@ -125,7 +125,7 @@ function play(guild, song) {
 	let name = new Discord.RichEmbed()
           .setColor("RED")
            .setTitle('🎧 Playing Song 🎧' + song.title);
-	 guild.channel.send(name);
+	 message.channel.send(name);
 
 	if (!song) {
 		serverQueue.voiceChannel.leave();
@@ -144,5 +144,5 @@ function play(guild, song) {
 		.on('error', error => {
 			console.error(error);
 		});
-	dispatcher.setVolumeLogarithmic(serverQueue.volume / 5);
+  dispatcher.setVolumeLogarithmic(serverQueue.volume / 5);
 }
