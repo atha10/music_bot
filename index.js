@@ -7,7 +7,7 @@ const client = new Discord.Client();
 const search = require('youtube-search');
 const opts = {
     maxResults: 1,
-    key: 'AIzaSyAz_iSE7lyu3ckiuYVYMdG5PJZQHqAYR0c',
+    key: 'AIzaSyBqFMs2l5Pwrr3Yx19TCHq6lXhgT9HWYSE',
     type: 'video'
 };
 //hello
@@ -62,18 +62,18 @@ async function execute(message, serverQueue) {
     //const songInfo = await ytdl.getInfo(args[1]);
     console.log(songInfo);
 
-       // const youtubeResults = songInfo.result;
-        //const url2 = youtubeResults.map(result => {
-      //  return result.id
-    //    });
-      //  const title2 = youtubeResults.map(result => {
-      //      return result.title
-      //      });
-    //    console.log(url2);
-//const song = {
-    //title: title2,
-  //  url: url2, 
-//}
+        const youtubeResults = songInfo.result;
+        const url2 = youtubeResults.map(result => {
+        return result.id
+        });
+        const title2 = youtubeResults.map(result => {
+            return result.title
+           });
+        console.log(url2);
+const song = {
+    title: title2,
+    url: url2, 
+}
     
  
 
