@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const prefix = '/';
-//const token = 'NjQ3NzY4ODYzNDMzNDI0OTM2.XdvxaQ.LUYBBK0VusXJhkavPNV207SD0X8';
+//const token = 'NjQ3NzY4ODYzNDMzNDI0OTM2.XdyMbw.xo2Ynp7SeeLSurhST5Rc1bIo_8E';
 const ytdl = require('ytdl-core');
 
 const client = new Discord.Client();
@@ -8,12 +8,14 @@ const search = require('youtube-search');
 const opts = {
     maxResults: 1,
     key: 'AIzaSyAz_iSE7lyu3ckiuYVYMdG5PJZQHqAYR0c',
-    type: 'video'
+	type: 'video',
+	videoDuration: 'any',
 };
 //hello
 
 const queue = new Map();
 client.login(process.env.TOKEN);
+//client.login(token);
 client.once('ready', () => {
 	console.log('Ready!');
 });
@@ -59,7 +61,7 @@ async function execute(message, serverQueue) {
     let query = await message.channel.awaitMessages(filter, { max: 1 });
     let songInfo = await search(query.first().content, opts).catch(err => console.log(err));
     //const songInfo = await ytdl.getInfo(args[1]);
-  //  console.log(songInfo);
+    console.log(songInfo);
 
         const youtubeResults = songInfo.results;
         const url2 = youtubeResults.map(result => {
@@ -93,6 +95,12 @@ const song = {
 		try {
 			var connection = await voiceChannel.join();
 			queueContruct.connection = connection;
+			let name = new Discord.RichEmbed()
+			.setColor("RED")
+			 .setTitle('🎧 Now Playing : ' + song.title + ' 🎧')
+			 .setDescription('This Song Is Requested By ' + message.author.username)
+	          message.channel.send(name);
+			
 			play(message.guild, queueContruct.songs[0]);
 		} catch (err) {
 			console.log(err);
@@ -121,11 +129,9 @@ function stop(message, serverQueue) {
 
 function play(guild, song) {
     const serverQueue = queue.get(guild.id);
-    console.log(song);
-	//let name = new client.RichEmbed()
-          //.setColor("RED")
-          // .setTitle('🎧 Playing Song 🎧' + song.title);
-	// message.channel.send(name);
+	console.log(song);
+	
+
 
 	if (!song) {
 		serverQueue.voiceChannel.leave();
@@ -135,7 +141,7 @@ function play(guild, song) {
 	}
    //server.dispatcher = connection.playStream(ytdl(server.queue[0], {filter: "audioonly"}));
 
-	const dispatcher = serverQueue.connection.playStream(ytdl(song.url, {filter: "audioonly"}))
+	const dispatcher = serverQueue.connection.playStream(ytdl(song.url, {quality: "highestaudio"}))
 		.on('end', () => {
 			console.log('Music ended!');
 			serverQueue.songs.shift();
