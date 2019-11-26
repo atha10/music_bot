@@ -62,7 +62,7 @@ async function execute(message, serverQueue) {
     //const songInfo = await ytdl.getInfo(args[1]);
     console.log(songInfo);
 
-        const youtubeResults = songInfo.songInfo;
+        const youtubeResults = songInfo.results;
         const url2 = youtubeResults.map(result => {
         return result.id
         });
@@ -72,7 +72,7 @@ async function execute(message, serverQueue) {
         console.log(url2);
 const song = {
     title: title2,
-    url: url2,
+    url: url2, 
 }
     
  
