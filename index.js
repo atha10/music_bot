@@ -7,9 +7,8 @@ const client = new Discord.Client();
 const search = require('youtube-search');
 const opts = {
     maxResults: 1,
-    key: 'AIzaSyAz_iSE7lyu3ckiuYVYMdG5PJZQHqAYR0c',
-	type: 'video',
-	videoDuration: 'any',
+    key: 'AIzaSyAz_iSE7lyu3ckiuYVYMdG5PJZQHqAYR0c',,
+    type: 'video',
 };
 //hello
 
