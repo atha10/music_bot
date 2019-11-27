@@ -1,5 +1,3 @@
-
-
 const http = require('http');
 http.createServer(function(request,responce)
                   {
@@ -7,11 +5,15 @@ http.createServer(function(request,responce)
 }).listen(3000);
 
 const { Client, Util } = require('discord.js');
+//const { TOKEN, PREFIX, GOOGLE_API_KEY, COLOR, STATUS, CMDNAME } = require('./config');
 const PREFIX = '/';
 const GOOGLE_API_KEY = 'AIzaSyBqFMs2l5Pwrr3Yx19TCHq6lXhgT9HWYSE';
+const COLOR = 'RED';
+const STATUS = '🎧Music for you';
 const YouTube = require('simple-youtube-api');
 const ytdl = require('ytdl-core');
 const Discord = require("discord.js");
+//const TOKEN = 'NjQ3NzY4ODYzNDMzNDI0OTM2.Xd4r6A.Delx75G60Phh50nK5dfw44PKAOo';
 
 const client = new Client({ disableEveryone: true });
 
@@ -96,8 +98,8 @@ client.on('message', async msg => { // eslint-disable-line
                     var videos = await youtube.searchVideos(searchString, 10);
                     let index = 0;
                     var embed = new Discord.RichEmbed()
-                        .setTitle("🎺 Song Selection ✔️")
-                        .setDescription(`${videos.map(video2 => `**${++index}** \`${video2.title}\` `).join('\n')}`)
+                        .setTitle("🎺 Song Selection ✔")
+                        .setDescription(`${videos.map(video2 => `*${++index}* \`${video2.title}\` `).join('\n')}`)
                         .setColor(`${COLOR}`)
                         .setFooter("Please provide a value to select one of the search results ranging from 1-10.")
 
@@ -144,15 +146,15 @@ client.on('message', async msg => { // eslint-disable-line
         if (!serverQueue) return msg.channel.send('There is nothing playing that I could stop for you.');
         serverQueue.songs = [];
         serverQueue.connection.dispatcher.end('Stop command has been used!');
-        msg.reply("**bot has been stopped !**");
+        msg.reply("*bot has been stopped !*");
         return undefined;
 	} else if (command === 'volume') {
 		if (!msg.member.voiceChannel) return msg.channel.send('You are not in a voice channel!');
 		if (!serverQueue) return msg.channel.send('There is nothing playing.');
-		if (!args[1]) return msg.channel.send(`The current volume is: **${serverQueue.volume}**`);
+		if (!args[1]) return msg.channel.send(`The current volume is: *${serverQueue.volume}*`);
 		serverQueue.volume = args[1];
 		serverQueue.connection.dispatcher.setVolumeLogarithmic(args[1] / 4);
-		return msg.channel.send(`I set the volume to: **${args[1]}**`);
+		return msg.channel.send(`I set the volume to: *${args[1]}*`);
 	} else if (command === 'clean') {
     if (!msg.member.voiceChannel) return msg.channel.send('You are not in a voice channel!');
 		if (!serverQueue) return msg.channel.send('Quene is already empty');
@@ -161,7 +163,7 @@ client.on('message', async msg => { // eslint-disable-line
   else if (command === 'np') {
     var embed = new Discord.RichEmbed()
     .setTitle("Song Detail")
-    .setDescription(`🎶 \`Now playing:\` **${serverQueue.songs[0].title}**`)
+    .setDescription(`🎶 \`Now playing:\` *${serverQueue.songs[0].title}*`)
     .setColor(`${COLOR}`)
 		if (!serverQueue) return msg.channel.send('There is nothing playing.');
 		return msg.channel.send(embed);
@@ -170,9 +172,9 @@ client.on('message', async msg => { // eslint-disable-line
 		if (!serverQueue) return msg.channel.send('There is nothing playing.');
 		var embed = new Discord.RichEmbed()
                 .setTitle("Song Queue")
-                .setDescription(`${serverQueue.songs.map(song => `**• ** ${song.title}`).join('\n')}
+                .setDescription(`${serverQueue.songs.map(song => `*• * ${song.title}`).join('\n')}
 
-🎵 \`Now playing:\` **${serverQueue.songs[0].title}**`)
+🎵 \`Now playing:\` *${serverQueue.songs[0].title}*`)
                 .setColor(`${COLOR}`)
     return msg.channel.send(embed);
 	} else if (command === 'pause') {
@@ -268,11 +270,11 @@ function play(guild, song) {
 
 	var embed = new Discord.RichEmbed()
         .setTitle("Song Selection")
-        .setDescription(`🎵 \`Start playing:\` **${song.title}**`)
+        .setDescription(`🎵 \`Start playing:\` *${song.title}*`)
         .setColor(`${COLOR}`)
     serverQueue.textChannel.send(embed);
 }
           
 
 
-client.login(process.env.TOEKN);
+client.login(process.env.TOKEN);
