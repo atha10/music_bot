@@ -8,7 +8,7 @@ const { Client, Util } = require('discord.js');
 //const { TOKEN, PREFIX, GOOGLE_API_KEY, COLOR, STATUS, CMDNAME } = require('./config');
 const PREFIX = '/';
 const GOOGLE_API_KEY = 'AIzaSyBqFMs2l5Pwrr3Yx19TCHq6lXhgT9HWYSE';
-const COLOR = 'YELLOW';
+const COLOR = 'ORANGE';
 const STATUS = 'Chill Arena Zone 🎶';
 const YouTube = require('simple-youtube-api');
 const ytdl = require('ytdl-core');
@@ -31,7 +31,7 @@ client.on('message', message => {
   if (message.content === `${PREFIX}help`) {
     var embed = new Discord.RichEmbed()
     .setTitle('MUSIC COMMANDS')
-    .setColor(`${COLOR}`)
+    .setColor(`GOLD`)
     .setDescription(`${PREFIX}play, ${PREFIX}skip, ${PREFIX}np, ${PREFIX}volume, ${PREFIX}stop, ${PREFIX}resume, ${PREFIX}queue, ${PREFIX}pause, ${PREFIX}clean`);
     message.channel.send(embed);
   }
