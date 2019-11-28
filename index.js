@@ -3,9 +3,7 @@ http.createServer(function(request,responce)
                   {
   responce.writeHead(200, {'Content-Type': 'text/plain'});
 }).listen(3000);
-const helper = require("discord.js-helper");
-const client1 = new helper.Client(); 
-const bm = new helper.BotManager(client);
+
 const { Client, Util } = require('discord.js');
 //const { TOKEN, PREFIX, GOOGLE_API_KEY, COLOR, STATUS, CMDNAME } = require('./config');
 const PREFIX = '/';
@@ -23,9 +21,9 @@ const youtube = new YouTube(GOOGLE_API_KEY);
 
 const queue = new Map(); 
 
-client1.on('message', message => {
+client.on('message', message => {
   if (message.content === `${PREFIX}ping`) {
-    message.reply("Pong | " , Math.floor(bm.getPing()) + " ms" );
+    message.reply("Pong | ");
   }
 });
 
