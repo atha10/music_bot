@@ -15,7 +15,7 @@ const ytdl = require('ytdl-core');
 const Discord = require("discord.js");
 //const TOKEN = 'NjQ3NzY4ODYzNDMzNDI0OTM2.Xd4r6A.Delx75G60Phh50nK5dfw44PKAOo';
 
-const client = new Client({ disableEveryone: true });
+//const client = new Client({ disableEveryone: true });
 
 const youtube = new YouTube(GOOGLE_API_KEY);
 
