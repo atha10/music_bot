@@ -23,7 +23,7 @@ const queue = new Map();
 
 client.on('message', message => {
   if (message.content === `${PREFIX}ping`) {
-    message.reply('pong');
+    message.reply('pong' , Math.floor(bm.getPing()) );
   }
 });
 
