@@ -5,8 +5,11 @@
   "main": "index.js",
   "dependencies": {
     "discord.io": "^2.5.3",
-    "ffmpeg": "^0.0.4",
     "discord.js": "^11.5.1",
+    "discord.js-helper": "^3.0.5",
+    "ffmpeg": "^0.0.4",
+    "helper": "0.0.13",
+    "http": "0.0.0",
     "opusscript": "^0.0.7",
     "simple-youtube-api": "^5.2.1",
     "youtube-search": "^1.1.4",
@@ -15,7 +18,7 @@
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start" : "node index.js"
+    "start": "node index.js"
   },
   "keywords": [],
   "author": "",
