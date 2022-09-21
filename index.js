@@ -5,7 +5,6 @@ http.createServer(function(request,responce)
 }).listen(3000);
 
 const { Client, Util } = require('discord.js');
-//const { TOKEN, PREFIX, GOOGLE_API_KEY, COLOR, STATUS, CMDNAME } = require('./config');
 const PREFIX = '/';
 const GOOGLE_API_KEY = 'AIzaSyBqFMs2l5Pwrr3Yx19TCHq6lXhgT9HWYSE';
 const COLOR = 'GOLD';
@@ -13,7 +12,7 @@ const STATUS = 'Chill Arena Zone 🎶';
 const YouTube = require('simple-youtube-api');
 const ytdl = require('ytdl-core');
 const Discord = require("discord.js");
-//const TOKEN = 'NjQ3NzY4ODYzNDMzNDI0OTM2.Xd4r6A.Delx75G60Phh50nK5dfw44PKAOo';
+
 
 const client = new Client({ disableEveryone: true });
 
